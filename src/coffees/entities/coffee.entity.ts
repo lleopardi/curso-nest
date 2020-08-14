@@ -13,10 +13,13 @@ export class Coffee {
   id: number;
 
   @Column()
-  name: string;
+  title: string;
 
   @Column()
   brand: string;
+
+  @Column({ default: 0 })
+  recomendations: number;
 
   @JoinTable()
   @ManyToMany(
