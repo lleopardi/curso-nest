@@ -8,14 +8,12 @@ import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from '@hapi/joi';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      validationSchema: Joi.object({
-        DATABASE_HOST: Joi.required(),
-        DATABASE_PORT: Joi.number().default(5432),
-      }),
+      load: [appConfig],
       // si se desea ignorar estos archivos y cargar desde las variables definidas por ejemplo
       // ui como heroku se ignora estos archivos con ignoreEnvFile
     }), // por defecto tomará los archivos .env que estan en la raiz del app y los asigna a process.env

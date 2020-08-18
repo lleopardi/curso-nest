@@ -7,7 +7,6 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
 import { Flavor } from './entities/flavor.entity';
 import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
-import { off } from 'process';
 import { Event } from '../events/entities/event.entity';
 import { ConfigService } from '@nestjs/config';
 
@@ -21,7 +20,7 @@ export class CoffeesService {
     private readonly connections: Connection,
     private readonly configService: ConfigService,
   ) {
-    const host = this.configService.get<string>('DATABASE_HOST');
+    const host = this.configService.get('database.host');
     console.log('host', host);
   }
 
