@@ -20,8 +20,8 @@ export class CoffeesService {
     private readonly connections: Connection,
     private readonly configService: ConfigService,
   ) {
-    const host = this.configService.get('database.host');
-    console.log('host', host);
+    const coffeesConfig = this.configService.get('coffess');
+    console.log('coffeesConfig', coffeesConfig);
   }
 
   findAll(paginationQueryDto: PaginationQueryDto) {
