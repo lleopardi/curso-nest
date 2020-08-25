@@ -24,8 +24,8 @@ export class CoffeesController {
 
   // si no se pasa un parámetro a Param se tiene acceso a un objeto con todos los parametros
   @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.coffeesService.findOne('' + id);
+  findOne(@Param('id') id: string) {
+    return this.coffeesService.findOne(id);
   }
 
   @Post()
